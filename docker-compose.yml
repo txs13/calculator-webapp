@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  calculator-react-app:
+    build: ./client
+    image: calculator-react-app
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - calculator-app      
+  calculator-api-server:
+    build: ./server
+    image: calculator-api-server
+    ports: 
+      - "5000:5000"
+    networks:
+      - calculator-app
+    depends_on:
+      - mongo  
+  mongo:
+    image: mongo:5.0.3
+    ports:
+      - "27017:27017"
+    networks:  
+      - calculator-app
+    volumes:
+      - mongo-data:/data/calc-db
+networks:
+  calculator-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
