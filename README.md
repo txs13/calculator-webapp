@@ -30,3 +30,4 @@
 <li>Hotkeys to type directly using keyboard</li>
 <li>If you run the dockerized verion of the app, frontend is accesible on a port 3000 and is linked to the react dev server. Later on it is going to be linked to the build version.</li>
 </ul>
+<img src="./Calculator-webApp-screenshot.png"/>
